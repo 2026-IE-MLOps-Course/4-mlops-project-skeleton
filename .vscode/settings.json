@@ -1,0 +1,7 @@
+{
+    // settings.json  [Shared VS Code settings for this repo]
+    // Purpose   Everyone's VS Code picks the conda environment and conda packages the same way
+    // Note      The only file in .vscode/ that Git tracks (see .gitignore). Personal settings stay local
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
+}

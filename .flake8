@@ -1,4 +1,7 @@
 # .flake8  [Style checker settings]
 # Purpose   One set of style rules (PEP 8) for everyone: run "flake8" from the repo root
 # Read by   flake8 in VS Code (PROBLEMS tab), in your terminal and in CI, so all three agree
-# Typical   maximum line length, folders to skip (notebooks, data, generated outputs)
+# Kept as real settings on purpose (2 lines): without them flake8 falls back to 79-character lines
+[flake8]
+max-line-length = 120
+exclude = .git,__pycache__,notebooks,data,models,reports,logs,wandb,artifacts
