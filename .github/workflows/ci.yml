@@ -1,9 +1,11 @@
-# ci.yml  [Continuous Integration (CI): the automatic reviewer]
+# ci.yml  [Continuous Integration (CI): the automatic quality gate]
 # -------------------------------------------------------------------
-# Purpose   On every Pull Request, rebuild the environment and run the quality checks
-# Steps     checkout -> create environment (environment.yml) -> flake8 -> pytest
-# Why       Broken code cannot be merged into dev or main, whoever wrote it
-# Link      Branch protection: make this check "required" before merging
+# Purpose   On every Pull Request (and push to main), prove the code is safe to merge
+# Steps     checkout -> lint (flake8) -> rebuild exact environment (conda-lock.yml)
+#           -> run the pipeline end to end, tracking disabled (the model quality gate runs here)
+#           -> pytest with a minimum coverage -> Docker image must build
+# Never     Real secrets or live tracking: CI checks code and packaging, not external services
+# Link      Branch protection makes these checks required for dev and main
 #
 # Placeholder: the stub below only runs when started by hand, so it never fails a PR
 name: CI (placeholder)

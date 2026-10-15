@@ -1,0 +1,15 @@
+# deploy.yml  [Continuous Deployment (CD): ship a release]
+# -------------------------------------------------------------------
+# Purpose   Deploy ONLY when a person publishes a GitHub Release (or reruns it to roll back)
+# Steps     rerun CI on the released commit -> call the host's deploy hook (a GitHub Secret)
+#           -> scripts/smoke_test.py waits for /health on the new version, then calls /predict
+# Why       A human decides WHEN to release; automation guarantees HOW
+#
+# Placeholder: the stub below only runs when started by hand
+name: CD (placeholder)
+on: workflow_dispatch
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Replace this stub with your own deployment steps"

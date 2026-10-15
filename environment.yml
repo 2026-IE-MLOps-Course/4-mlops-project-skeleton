@@ -1,13 +1,14 @@
-# environment.yml  [Dependencies]
+# environment.yml  [Dependencies, human-readable]
 # -------------------------------------------------------------------
-# Purpose   List the packages (and Python version) the project needs
-# Used by   You and your teammates: conda env create -f environment.yml
-# Why       Everyone runs the same code on the same versions ("works on my machine" ends here)
+# Purpose   Short list of top-level packages and the Python version
+# Used by   Humans: conda env create -f environment.yml
+# Paired    conda-lock.yml is generated FROM this file. Change one, regenerate and commit both
 #
 # Typical groups
-#   data and modelling    e.g. pandas, scikit-learn, joblib
-#   notebooks and plots   exploration only
-#   quality (stage 2)     test runner, coverage, style checker
-#   stage 3               config, tracking, serving and locking tools
-#
-# Stage 3: conda-lock.yml freezes these into exact versions for CI and Docker
+#   data and modelling      e.g. pandas, scikit-learn, joblib
+#   config and secrets      YAML reader, .env loader
+#   experiment tracking     e.g. wandb
+#   serving                 web framework, server, data contract library, test client
+#   notebooks               exploration only
+#   quality                 test runner, coverage, style checker
+#   locking                 conda-lock

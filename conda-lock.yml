@@ -1,0 +1,6 @@
+# conda-lock.yml  [Dependencies, machine contract]
+# -------------------------------------------------------------------
+# Purpose   Exact package versions (with hashes) for Linux, generated from environment.yml
+# Used by   CI (ci.yml) and Docker (Dockerfile) to rebuild the SAME environment every time
+# Create    conda-lock -p linux-64 -f environment.yml   (never edit by hand)
+# Why       Ends "works on my machine": a new package release cannot silently break the build

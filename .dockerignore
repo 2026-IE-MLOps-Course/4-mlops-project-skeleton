@@ -1,0 +1,5 @@
+# .dockerignore  [What never enters the image]
+# Purpose   Keep the image small and safe: no data, notebooks, tests or secrets
+# Strategy  Allow-list: ignore everything, then allow only what the API needs
+#           (Dockerfile, conda-lock.yml, config.yaml, src/, optional models/)
+# Safety    .env and caches are excluded even if a rule above changes

@@ -1,0 +1,4 @@
+{
+  "_about": "sample_request.json [Example API payload]. Purpose: one or two realistic records in the exact shape POST /predict expects. Used by smoke_test.py and for manual tests in the API docs page (/docs). Same feature columns as training, no target.",
+  "records": []
+}

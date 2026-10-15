@@ -43,3 +43,11 @@ models/**
 reports/**
 !reports/
 !reports/README.md
+
+# Stage 3: logs and tracking outputs
+logs/**
+!logs/
+!logs/README.md
+*.log
+wandb/
+artifacts/
