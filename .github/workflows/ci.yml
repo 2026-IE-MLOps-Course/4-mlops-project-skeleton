@@ -1,0 +1,15 @@
+# ci.yml  [Continuous Integration (CI): the automatic reviewer]
+# -------------------------------------------------------------------
+# Purpose   On every Pull Request, rebuild the environment and run the quality checks
+# Steps     checkout -> create environment (environment.yml) -> flake8 -> pytest
+# Why       Broken code cannot be merged into dev or main, whoever wrote it
+# Link      Branch protection: make this check "required" before merging
+#
+# Placeholder: the stub below only runs when started by hand, so it never fails a PR
+name: CI (placeholder)
+on: workflow_dispatch
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Replace this stub with your own CI steps"

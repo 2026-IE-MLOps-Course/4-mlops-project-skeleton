@@ -1,0 +1,4 @@
+# .flake8  [Style checker settings]
+# Purpose   One set of style rules (PEP 8) for everyone: run "flake8" from the repo root
+# Read by   flake8 in VS Code (PROBLEMS tab), in your terminal and in CI, so all three agree
+# Typical   maximum line length, folders to skip (notebooks, data, generated outputs)

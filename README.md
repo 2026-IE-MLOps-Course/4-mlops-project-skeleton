@@ -3,60 +3,45 @@
 This repo is a **map, not a codebase**. Every file is a placeholder: no code, only a short note on
 what the file does, where it sits in the pipeline and which files it talks to.
 
-Create the same folders and files in **your own** project repo, then write the code for **your** use case.
-
 ## Stages = branches
 
 | Branch | Stage | Sessions | What it adds |
 |---|---|---|---|
-| `main` (you are here) | 1. Kickoff | 1 to 3 | Folder structure, business case, one placeholder per pipeline step |
-| `stage-2-modular` | 2. Modular code | 4 to 9 | Tests, style and test settings, first CI (Continuous Integration) workflow |
+| `main` | 1. Kickoff | 1 to 3 | Folder structure, business case, one placeholder per pipeline step |
+| `stage-2-modular` (you are here) | 2. Modular code | 4 to 9 | Tests, style and test settings, first CI (Continuous Integration) workflow |
 | `stage-3-cicd` | 3. CI/CD | 10 to 14 | Config loader, logging, experiment tracking, API, Docker, deployment |
 
-Tip: on GitHub, open **Compare** (`main...stage-2-modular`) to see exactly what each stage adds.
+## What stage 2 adds
 
-## The pipeline at a glance
+- **Working modules:** each `src/` file now holds real code for your use case (here: still a note)
+- **Settings in one place:** a `SETTINGS` dictionary at the top of `src/main.py`, same keys as `config.yaml`
+- **Tests:** one test file per module in `tests/`, run with `pytest`
+- **Style:** `.flake8` so VS Code and CI flag the same issues
+- **CI:** `.github/workflows/ci.yml` runs style checks and tests on every Pull Request
+
+## Quality loop
 
 ```text
-                           main.py  (orchestrator, one command)
-                              |
- data/raw/ -> load_data -> clean_data -> validate -> split -> features -> train -> evaluate
-                                                (train/val/test) (recipe)   (fit)   (val split)
-                                                                              |
-                     reports/predictions.csv <- infer <- models/model.joblib (save)
+ edit code --> flake8 (style) --> pytest (tests) --> python -m src.main (end to end)
+     ^                                                         |
+     +----------- Pull Request: CI reruns flake8 + pytest <----+
 ```
 
-## Stage 1 structure
+## Stage 2 structure (new items marked +)
 
 ```text
 .
-├── README.md                 # business case, success metrics, how to run
-├── config.yaml               # non-secret settings (paths, target, split sizes)
-├── environment.yml           # dependencies (conda)
-├── .env.example              # names of secrets, never real values
-├── .gitignore                # keeps data, secrets and generated files out of Git
-├── LICENSE
+├── README.md / config.yaml / environment.yml / .env.example / .gitignore / LICENSE
+├── .flake8                   + style checker settings
+├── pytest.ini                + test runner settings
 ├── .github/
-│   └── pull_request_template.md
-├── notebooks/                # the "lab": exploration only
-├── src/                      # the "factory": one job per module
-│   ├── load_data.py          # 1. read raw data
-│   ├── clean_data.py         # 2. stateless cleaning
-│   ├── validate.py           # 3. data quality gate
-│   ├── features.py           # 4. unfitted feature recipe
-│   ├── train.py              # 5. fit the pipeline
-│   ├── evaluate.py           # 6. metrics on unseen data
-│   ├── infer.py              # 7. predictions on new data
-│   ├── utils.py              # shared read and write helpers
-│   └── main.py               # 0. orchestrator: python -m src.main
+│   ├── pull_request_template.md
+│   └── workflows/ci.yml      + style and tests on every Pull Request
+├── notebooks/                # now imports from src/
+├── src/  main, load_data, clean_data, validate, features, train, evaluate, infer, utils
 ├── data/  raw/ processed/ inference/
-├── models/                   # saved model (generated)
-├── reports/                  # predictions, plots (generated)
-└── tests/                    # automated tests (stage 2)
+├── models/  reports/
+└── tests/
+    ├── __init__.py           +
+    └── test_<module>.py      + one per src/ module
 ```
-
-## How to use this skeleton
-
-1. Open a file and read its note
-2. Create the equivalent file in your repo
-3. Write your own code: the note describes the job, not the solution
