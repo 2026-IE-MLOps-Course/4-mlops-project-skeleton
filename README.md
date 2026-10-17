@@ -21,6 +21,8 @@ what the file does, where it sits in the pipeline and which files it talks to.
 - **Containers:** `Dockerfile` + `conda-lock.yml` package the API with exact versions
 - **CI/CD:** `ci.yml` checks every Pull Request; `deploy.yml` ships each GitHub Release to the cloud
 
+> **Windows:** always run inside the activated environment (`conda activate <your-env>`, then `python -m src.main`), or use `conda run -n <your-env> python -m src.main`. Calling the environment's `python.exe` directly, for example from a VS Code interpreter that did not activate the environment, can crash with `0xC06D007F` during model calibration because Windows cannot find the environment's maths libraries.
+
 ## Architecture
 
 ```text
