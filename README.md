@@ -19,6 +19,8 @@ what the file does, where it sits in the pipeline and which files it talks to.
 - **Style:** `.flake8` so VS Code and CI flag the same issues
 - **CI:** `.github/workflows/ci.yml` runs style checks and tests on every Pull Request
 
+> **Windows:** always run inside the activated environment (`conda activate <your-env>`, then `python -m src.main`), or use `conda run -n <your-env> python -m src.main`. Calling the environment's `python.exe` directly, for example from a VS Code interpreter that did not activate the environment, can crash with `0xC06D007F` during model calibration because Windows cannot find the environment's maths libraries.
+
 ## Quality loop
 
 ```text
