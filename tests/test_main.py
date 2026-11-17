@@ -1,6 +1,8 @@
 """
 test_main.py  [Tests for src/main.py]
 =====================================
+Stage 3   Keep the existing quality-gate and pipeline tests; add config, logging and tracking boundaries
+          The new services must preserve pipeline artifacts and prevent saving a model that fails the gate
 Purpose   Prove src/main.py does its one job, automatically, after every change
 Run       pytest tests/test_main.py   (CI runs all tests on every Pull Request)
 
@@ -8,6 +10,7 @@ What to check
 - Split math: sizes add up, no row appears in two splits, class balance is kept
 - End to end in a temporary folder: the pipeline runs and writes the model and predictions
 - main.py contains no cleaning, feature or model logic of its own
+- A failed quality gate prevents saving or registering a model
 
 Rule      Tests use small, fake in-memory data or temporary folders: never your real data files
 """

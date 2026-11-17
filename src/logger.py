@@ -1,6 +1,8 @@
 """
 logger.py  [One logging setup]
 ==============================
+Stage 3   Complete TODO: replace print with logging from assignment 1
+          A shared setup adds severity, time and module names so pipeline and API failures are traceable
 Purpose   Configure logging ONCE: timestamp, level, module name, to console and a log file
 Called by main.py and api.py at startup (only the entry points)
 Used by   every module through: logger = logging.getLogger(__name__)

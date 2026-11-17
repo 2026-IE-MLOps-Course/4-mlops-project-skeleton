@@ -1,5 +1,7 @@
 # config.yaml  [Settings: single source of truth]
 # -------------------------------------------------------------------
+# Stage 3   SETTINGS moves here from src/main.py, including the quality-gate settings
+#           src/config.py reads it so training and serving use one source of non-secret values
 # Purpose   Every NON-SECRET setting, in one place. Change behaviour without editing code
 # Read by   src/config.py, which main.py, api.py and notebooks all use
 # Never     Secrets. Those go in .env locally and in GitHub Secrets / host settings in the cloud
@@ -14,4 +16,5 @@
 #   validation   business rules checked by validate.py
 #   evaluation   metrics, quality gate (metric + threshold), test audit on/off
 #   api          serving options (e.g. monitoring batch size)
-#   tracking     experiment tracking project, run name, tags, what to log
+#   run          whether classification inference includes probability
+#   wandb        experiment tracking project, run name, tags, what to log
