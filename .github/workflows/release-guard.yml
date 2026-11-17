@@ -1,5 +1,7 @@
 # release-guard.yml  [A release must come from main]
 # -------------------------------------------------------------------
+# Stage 3   A new release path needs an ancestry check before building or deploying
+#           This keeps a feature-branch tag from bypassing review on main
 # Purpose   Fail unless the release tag's commit is on main
 # Called by deploy.yml as its first job (guard)
 # Why       A tag from a feature branch would skip review

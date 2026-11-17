@@ -3,6 +3,10 @@
 This repo is a **map, not a codebase**. Every file is a placeholder: no code, only a short note on
 what the file does, where it sits in the pipeline and which files it talks to.
 
+Start from the helper's end state: `SETTINGS` in `src/main.py`, unused `config.yaml`, and `print()` with
+`TODO: replace print with logging`. The quality gate already runs in `main()`; no continuous integration
+or service secrets are required at that point. Stage 3 notes explain what moves or is added and why.
+
 API means application programming interface. CI/CD means continuous integration and continuous deployment.
 W&B means Weights & Biases. PR means Pull Request. MD5 is the file checksum used by Data Version Control (DVC).
 
@@ -11,7 +15,7 @@ W&B means Weights & Biases. PR means Pull Request. MD5 is the file checksum used
 | Branch | Stage | Sessions | What it adds |
 |---|---|---|---|
 | `main` | 1. Kickoff | 1 to 3 | Folder structure, business case, one placeholder per pipeline step |
-| `stage-2-modular` | 2. Modular code | 4 to 9 | Tests, style and test settings, first CI (Continuous Integration) workflow |
+| `stage-2-modular` | 2. Modular code | 4 to 9 | Tested modules, SETTINGS, local style checks and a quality gate in main() |
 | `stage-3-cicd` (you are here) | 3. CI/CD | 10 to 14 | Config loader, logging, data versioning (DVC), experiment tracking, API, Docker, release-gated deployment |
 
 ## What stage 3 adds
@@ -20,10 +24,10 @@ W&B means Weights & Biases. PR means Pull Request. MD5 is the file checksum used
 - **Logging:** `src/logger.py` replaces `print()` with timestamped logs to console and `logs/`
 - **Data versioning:** `dvc.yaml` runs the pipeline as one stage; the data lives on DagsHub and Git keeps only the `.dvc` pointers and `dvc.lock`
 - **Experiment tracking:** `src/tracking.py` records runs, metrics and model versions (e.g. Weights & Biases, W&B)
-- **Quality gate:** the model is saved only if its validation metric beats a threshold set in config
+- **Quality gate:** keep the decision already made in `main()`; move its settings to `config.yaml` and reuse the comparison through `evaluate.py`
 - **Serving:** `src/api.py` exposes the model as a web API (FastAPI)
 - **Containers:** a two-stage `Dockerfile` installs `conda-lock.yml` exactly; the release image carries the code and ONE promoted model
-- **CI/CD:** `ci.yml` checks every Pull Request (lint, `dvc pull` + `dvc repro` with the quality gate, 90 % branch coverage, Docker build); `deploy.yml` ships a GitHub Release from `main` (guard, CI again, image with the W&B `prod` model, smoke test, push to `ghcr.io`, Render deploys that image); rollback redeploys an older release image
+- **CI/CD:** add automation to the local commands from assignment 1; `ci.yml` checks every Pull Request (lint, `dvc pull` + `dvc repro` with the quality gate, 90 % branch coverage, Docker build); `deploy.yml` ships a GitHub Release from `main` (guard, CI again, image with the W&B `prod` model, smoke test, push to `ghcr.io`, Render deploys that image); rollback redeploys an older release image
 
 > **Windows:** always run inside the activated environment (`conda activate <your-env>`, then `python -m src.main`), or use `conda run -n <your-env> python -m src.main`. Calling the environment's `python.exe` directly, for example from a VS Code interpreter that did not activate the environment, can crash with `0xC06D007F` during model calibration because Windows cannot find the environment's maths libraries.
 

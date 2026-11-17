@@ -1,4 +1,6 @@
 # .dockerignore  [What never enters the image]
+# Stage 3   The local Python project becomes a container; describe which files may enter it
+#           Excluding data, notebooks and secrets keeps the serving image small and safe
 # Purpose   Keep the image small and safe: no data, notebooks, tests or secrets
 # Strategy  Allow-list: ignore everything, then allow only what the API needs
 #           (Dockerfile, conda-lock.yml, config.yaml, src/, models/ (the promoted model, baked in at release))

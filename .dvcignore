@@ -1,5 +1,7 @@
 # .dvcignore  [What Data Version Control (DVC) never scans]
 # -------------------------------------------------------------------
+# Stage 3   The local pipeline gains data-version checks; exclude Python caches from those scans
+#           Cache changes must not look like changed training inputs
 # Purpose   Keep changing Python caches out of DVC dependency scans
 # Patterns  __pycache__/ and *.pyc, as in golden repo 3
 # Used by   DVC when checking dependencies and reproducing the pipeline

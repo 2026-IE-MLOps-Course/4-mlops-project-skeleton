@@ -1,6 +1,8 @@
 """
 test_fetch_prod_model.py  [Tests for scripts/fetch_prod_model.py]
 ================================================================
+Stage 3   Add release-model tests with a fake registry so no test needs credentials or a network
+          A release must package a fixed version, while its tests remain independent of the registry
 Purpose   Prove the release downloads the exact promoted model and reports its version
 Run       pytest tests/test_fetch_prod_model.py
 

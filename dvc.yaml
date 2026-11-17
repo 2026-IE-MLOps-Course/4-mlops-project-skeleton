@@ -1,5 +1,7 @@
 # dvc.yaml  [The whole pipeline as one Data Version Control (DVC) stage]
 # -------------------------------------------------------------------
+# Stage 3   Wrap the existing python -m src.main command in Data Version Control (DVC)
+#           Record its inputs and outputs so a changed dependency triggers a reproducible run
 # Purpose   Describe one reproducible pipeline stage, not separate steps
 # Command   python -m src.main
 # Depends   src, config.yaml, raw and inference data

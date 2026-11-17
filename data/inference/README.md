@@ -1,5 +1,8 @@
 # data/inference/  [New data to score]
 
+- **Stage 3:** DVC now records the batch input version alongside the training data
+- **Why:** Restore the recorded file before scoring, so predictions can be traced to their inputs
+
 - **Purpose:** new, unlabelled records the trained model has never seen
 - **Read by:** `src/main.py`, then passed to `src/infer.py`
 - **Rule:** same columns as training data, without the target

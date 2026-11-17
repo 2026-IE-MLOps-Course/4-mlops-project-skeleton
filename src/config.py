@@ -1,6 +1,8 @@
 """
 config.py  [Settings loader]
 ============================
+Stage 3   Read settings moved out of src/main.py into the previously unused config.yaml
+          Training and the API share the loader without importing the training entry point
 Purpose   Read config.yaml once, check required keys and types, resolve file paths
 Input     Path to config.yaml
 Output    Plain Python dictionary of settings

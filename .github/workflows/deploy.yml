@@ -1,12 +1,14 @@
 # deploy.yml  [Continuous Deployment (CD): ship a release]
 # -------------------------------------------------------------------
+# Stage 3   Local runs gain a release workflow so reviewed code and one approved model ship together
+#           Model promotion chooses what ships; a published release chooses when
 # Purpose   Ship a published GitHub Release from main
 # Decisions A person decides WHAT (moves the Weights & Biases, W&B, alias prod)
 #           and WHEN (publishes the release); automation handles HOW
 # Jobs      guard (release-guard.yml) -> ci (ci.yml on the tag) -> publish-image -> deploy
-# Image     fetch_prod_model.py resolves prod to a concrete version, e.g. model:v7
+# Image     fetch_prod_model.py resolves prod to a fixed model version
 #           -> build with MODEL_VERSION and GIT_COMMIT -> smoke test the container
-#           -> push to ghcr.io with X.Y.Z, X.Y, latest and sha-xxxxxxx tags
+#           -> push to ghcr.io with full release, minor release, latest and commit-based tags
 # Deploy    Render deploy hook with imgURL -> live smoke test (scripts/smoke_test.py)
 # Rollback  Run workflow with an older tag: only deploy runs, reusing that release image
 #           Code and model roll back together; move prod back before the next release

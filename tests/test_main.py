@@ -1,6 +1,8 @@
 """
 test_main.py  [Tests for src/main.py]
 =====================================
+Stage 3   Keep the existing quality-gate and pipeline tests; add config, logging and tracking boundaries
+          The new services must preserve pipeline artifacts and prevent saving a model that fails the gate
 Purpose   Prove src/main.py does its one job, automatically, after every change
 Run       pytest tests/test_main.py   (CI runs all tests on every Pull Request)
 

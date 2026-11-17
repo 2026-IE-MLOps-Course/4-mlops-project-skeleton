@@ -1,6 +1,8 @@
 """
 test_evaluate.py  [Tests for src/evaluate.py]
 =============================================
+Stage 3   Extend metric tests for the extracted quality-gate comparison; main still decides when to save
+          Keep metric comparison consistent between local runs and automated checks
 Purpose   Prove src/evaluate.py does its one job, automatically, after every change
 Run       pytest tests/test_evaluate.py   (CI runs all tests on every Pull Request)
 

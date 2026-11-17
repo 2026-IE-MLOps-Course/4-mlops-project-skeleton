@@ -1,6 +1,8 @@
 """
 api.py  [Serving: the model as a web API]
 =========================================
+Stage 3   Reuse the batch prediction path as an application programming interface (API)
+          Clients can score new records without starting the training pipeline
 Purpose   Answer prediction requests over HTTP with the approved model
 Run       uvicorn src.api:app --reload   then open /docs
 Startup   load settings (config.py), logging (logger.py), model = models/model.joblib

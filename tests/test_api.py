@@ -1,6 +1,8 @@
 """
 test_api.py  [Tests for src/api.py]
 ===================================
+Stage 3   Add request and health checks for the new service, reusing the existing prediction contract
+          Prove users receive the same predictions as batch jobs and the correct release metadata
 Purpose   Prove src/api.py does its one job, automatically, after every change
 Run       pytest tests/test_api.py   (CI runs all tests on every Pull Request)
 

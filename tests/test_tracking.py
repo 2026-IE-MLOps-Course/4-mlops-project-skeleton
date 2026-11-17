@@ -1,6 +1,8 @@
 """
 test_tracking.py  [Tests for src/tracking.py]
 =============================================
+Stage 3   Add history and lineage tests with fake services; the local pipeline tests must still run offline
+          Optional tracking must not break tests when an external service is unavailable
 Purpose   Prove src/tracking.py does its one job, automatically, after every change
 Run       pytest tests/test_tracking.py   (CI runs all tests on every Pull Request)
 

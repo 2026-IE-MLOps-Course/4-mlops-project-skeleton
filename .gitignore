@@ -1,3 +1,5 @@
+# Stage 3: allow DVC pointers, keep local data-versioning settings and caches out of Git
+# Why: share the input version without sharing data bytes or credentials
 # .gitignore  [What Git must never track]
 # Purpose: keep data, secrets and generated files out of GitHub
 # Kept as real rules on purpose: a missing rule can leak personal data or secrets

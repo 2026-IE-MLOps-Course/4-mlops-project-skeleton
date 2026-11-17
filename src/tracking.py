@@ -1,6 +1,8 @@
 """
 tracking.py  [Experiment tracking and model registry]
 =====================================================
+Stage 3   Add run and model history to the pipeline that previously only printed local results
+          Use credentials outside config.yaml, and keep tests working with tracking disabled
 Purpose   Record each run: settings, metrics, plots, data and model versions (e.g. Weights & Biases, W&B)
 Called by main.py (training runs); api.py owns its separate batched monitoring logs
 Settings  config.yaml, wandb section (project, run name, what to log) + .env (API key)

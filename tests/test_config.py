@@ -1,6 +1,8 @@
 """
 test_config.py  [Tests for src/config.py]
 =========================================
+Stage 3   Add loader tests because config.yaml now replaces SETTINGS as the settings source
+          Bad shared settings must fail before training or serving starts
 Purpose   Prove src/config.py does its one job, automatically, after every change
 Run       pytest tests/test_config.py   (CI runs all tests on every Pull Request)
 

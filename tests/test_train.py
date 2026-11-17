@@ -1,6 +1,8 @@
 """
 test_train.py  [Tests for src/train.py]
 =======================================
+Stage 3   Keep training and seed tests; add training-only calibration checks if calibration is enabled
+          Keep validation independent of every fitted transformation, including calibration
 Purpose   Prove src/train.py does its one job, automatically, after every change
 Run       pytest tests/test_train.py   (CI runs all tests on every Pull Request)
 

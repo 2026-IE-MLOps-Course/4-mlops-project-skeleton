@@ -1,5 +1,7 @@
 # ci.yml  [Continuous Integration (CI): the automatic quality gate]
 # -------------------------------------------------------------------
+# Stage 3   Add automated checks to the local flake8, pytest and pipeline commands
+#           The quality gate already exists in main(); automation must run it too
 # Purpose   On every Pull Request (and push to main), prove the code is safe to merge
 # Steps     checkout -> lint (flake8) -> rebuild exact environment (conda-lock.yml)
 #           -> dvc pull (DagsHub) -> dvc repro (pipeline with the quality gate, tracking disabled)

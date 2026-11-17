@@ -1,5 +1,7 @@
 # environment.yml  [Dependencies, human-readable]
 # -------------------------------------------------------------------
+# Stage 3   Extend the environment built in assignment 1 with config, tracking, data and API packages
+#           Keep this list readable; generate conda-lock.yml for exact automated builds
 # Purpose   Short list of top-level packages and the Python version
 # Used by   Humans: conda env create -f environment.yml
 # Paired    conda-lock.yml is generated FROM this file. Change one, regenerate and commit both

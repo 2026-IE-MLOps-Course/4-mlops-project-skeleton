@@ -1,6 +1,8 @@
 """
 test_clean_data.py  [Tests for src/clean_data.py]
 =================================================
+Stage 3   Keep the existing cleaning tests; also protect every inference row when the API reuses cleaning
+          A live request must never silently lose predictions during cleaning
 Purpose   Prove src/clean_data.py does its one job, automatically, after every change
 Run       pytest tests/test_clean_data.py   (CI runs all tests on every Pull Request)
 

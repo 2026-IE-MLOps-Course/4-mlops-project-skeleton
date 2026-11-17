@@ -1,6 +1,8 @@
 """
 test_infer.py  [Tests for src/infer.py]
 =======================================
+Stage 3   Keep index, schema and input-preservation tests while the API starts reusing inference
+          Batch and live predictions must keep the same schema and one result per input row
 Purpose   Prove src/infer.py does its one job, automatically, after every change
 Run       pytest tests/test_infer.py   (CI runs all tests on every Pull Request)
 
