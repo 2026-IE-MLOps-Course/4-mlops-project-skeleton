@@ -18,6 +18,8 @@ Flow
                                                                    |
     data/inference --> infer --> reports/predictions.csv
 
+Contract  split_data(X, y, test_size, val_size, random_state, stratify) returns six splits
+
 Why it matters
 - Split BEFORE anything is fitted, so no information leaks from test data into training
 - Data passes as explicit variables between stateless steps: no hidden state
