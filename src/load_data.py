@@ -2,10 +2,14 @@
 load_data.py  [Step 1: LOAD]
 ============================
 Purpose   Read the raw dataset into a DataFrame, exactly as it is on disk
-Input     Path to the raw file (config: paths.raw_data)
+Input     Path to the raw file, passed from SETTINGS in main.py
 Output    Raw pandas DataFrame, untouched
 Called by main.py          Uses   utils.py (file reading)
 Next      clean_data.py
+
+Contract  load_raw_data(raw_data_path: Path) -> pd.DataFrame
+Errors    Missing file: FileNotFoundError; folder: IsADirectoryError; empty file: ValueError
+          Empty includes a file with no bytes or with a header but no rows
 
 Why it matters
 - One entry point for data: swap CSV for a database or API later without touching other files

@@ -1,11 +1,9 @@
-# ci.yml  [Continuous Integration (CI): the automatic reviewer]
+# ci.yml  [Continuous Integration (CI), reserved for stage 3]
 # -------------------------------------------------------------------
-# Purpose   On every Pull Request, rebuild the environment and run the quality checks
-# Steps     checkout -> create environment (environment.yml) -> flake8 -> pytest
-# Why       Broken code cannot be merged into dev or main, whoever wrote it
-# Link      Branch protection: make this check "required" before merging
+# Purpose   Preview later automated style checks and tests, not an assignment 1 requirement
+# Stage 2   Run flake8 and pytest locally; this manual echo stub checks no student code
+# Why       Add automation only after the local pipeline and its tests work
 #
-# Placeholder: the stub below only runs when started by hand, so it never fails a PR
 name: CI (placeholder)
 on: workflow_dispatch
 jobs:
