@@ -19,7 +19,10 @@ venv/
 .pytest_cache/
 .mypy_cache/
 .coverage
+coverage.xml
 htmlcov/
+dist/
+build/
 
 # OS and IDE
 .DS_Store
@@ -35,14 +38,17 @@ data/**
 !data/inference/
 !data/**/.gitkeep
 !data/**/README.md
+!data/**/*.dvc
 
 # Generated outputs (recreated by: python -m src.main)
 models/**
 !models/
 !models/README.md
+!models/.gitkeep
 reports/**
 !reports/
 !reports/README.md
+!reports/.gitkeep
 
 # Stage 3: logs and tracking outputs
 logs/**
@@ -51,3 +57,8 @@ logs/**
 *.log
 wandb/
 artifacts/
+
+# DVC local settings and caches; shared .dvc/config stays versioned
+.dvc/config.local
+.dvc/tmp/
+.dvc/cache/

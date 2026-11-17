@@ -1,0 +1,7 @@
+# dvc.lock  [Pipeline inputs and outputs at one version]
+# -------------------------------------------------------------------
+# Purpose   Record the command and dependency/output hashes from dvc.yaml
+# Written by dvc repro, never edited by hand
+# Kept by   Git alongside the source, config and .dvc data pointers
+# Why       A commit identifies the exact pipeline inputs and outputs
+# Rule      This skeleton is a map; generate a real lockfile in your own project

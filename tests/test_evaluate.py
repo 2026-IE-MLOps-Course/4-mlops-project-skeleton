@@ -8,6 +8,7 @@ What to check
 - Metrics are plain numbers in the expected range
 - The right metrics are used for each problem type
 - An object without .predict() is rejected
+- The quality gate passes or raises for minimum/maximum thresholds and rejects missing or non-finite metrics
 
 Rule      Tests use small, fake in-memory data or temporary folders: never your real data files
 """

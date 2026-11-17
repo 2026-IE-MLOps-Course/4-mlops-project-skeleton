@@ -1,0 +1,6 @@
+# .dvcignore  [What Data Version Control (DVC) never scans]
+# -------------------------------------------------------------------
+# Purpose   Keep changing Python caches out of DVC dependency scans
+# Patterns  __pycache__/ and *.pyc, as in golden repo 3
+# Used by   DVC when checking dependencies and reproducing the pipeline
+# Why       Cache changes are not changes to the pipeline's inputs

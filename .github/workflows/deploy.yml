@@ -1,9 +1,16 @@
 # deploy.yml  [Continuous Deployment (CD): ship a release]
 # -------------------------------------------------------------------
-# Purpose   Deploy ONLY when a person publishes a GitHub Release (or reruns it to roll back)
-# Steps     rerun CI on the released commit -> call the host's deploy hook (a GitHub Secret)
-#           -> scripts/smoke_test.py waits for /health on the new version, then calls /predict
-# Why       A human decides WHEN to release; automation guarantees HOW
+# Purpose   Ship a published GitHub Release from main
+# Decisions A person decides WHAT (moves the Weights & Biases, W&B, alias prod)
+#           and WHEN (publishes the release); automation handles HOW
+# Jobs      guard (release-guard.yml) -> ci (ci.yml on the tag) -> publish-image -> deploy
+# Image     fetch_prod_model.py resolves prod to a concrete version, e.g. model:v7
+#           -> build with MODEL_VERSION and GIT_COMMIT -> smoke test the container
+#           -> push to ghcr.io with X.Y.Z, X.Y, latest and sha-xxxxxxx tags
+# Deploy    Render deploy hook with imgURL -> live smoke test (scripts/smoke_test.py)
+# Rollback  Run workflow with an older tag: only deploy runs, reusing that release image
+#           Code and model roll back together; move prod back before the next release
+# Never     Ship the model CI trains: it is evidence only
 #
 # Placeholder: the stub below only runs when started by hand
 name: CD (placeholder)

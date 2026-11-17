@@ -2,9 +2,11 @@
 # -------------------------------------------------------------------
 # Purpose   On every Pull Request (and push to main), prove the code is safe to merge
 # Steps     checkout -> lint (flake8) -> rebuild exact environment (conda-lock.yml)
-#           -> run the pipeline end to end, tracking disabled (the model quality gate runs here)
-#           -> pytest with a minimum coverage -> Docker image must build
-# Never     Real secrets or live tracking: CI checks code and packaging, not external services
+#           -> dvc pull (DagsHub) -> dvc repro (pipeline with the quality gate, tracking disabled)
+#           -> pytest --cov=src --cov-branch, minimum 90 % branch
+#           -> keep evidence (pipeline log, predictions, coverage, dvc.lock) -> Docker image must build
+# Access    DagsHub read credentials allow dvc pull; live W&B tracking stays disabled
+# Never     Ship the model CI trains: it is reproducibility evidence only
 # Link      Branch protection makes these checks required for dev and main
 #
 # Placeholder: the stub below only runs when started by hand, so it never fails a PR

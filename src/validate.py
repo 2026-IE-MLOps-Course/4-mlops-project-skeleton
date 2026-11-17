@@ -7,6 +7,9 @@ Output    True if valid, otherwise a clear error that stops the pipeline
 Called by main.py (training) and api.py (stage 3, every live request)
 Next      the split in main.py
 
+Contract  validate_dataframe(df, required_columns, target_column, check_missing_values,
+                             target_allowed_values, numeric_non_negative_cols)
+
 Why it matters
 - Garbage in, garbage out: stop bad data at the door, not deep inside training
 - Validate, never fix. Fixing belongs in clean_data.py

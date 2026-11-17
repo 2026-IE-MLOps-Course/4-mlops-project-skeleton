@@ -18,7 +18,11 @@ Flow
                                                                    v pass
                          test audit (once) --> save models/model.joblib + register (tracking.py)
                                                                    |
-    data/inference --> infer --> reports/predictions.csv --> tracking.py (finish run)
+    data/inference --> load -> clean -> validate -> infer --> reports/predictions.csv
+                                                                   |
+                                                      tracking.py (finish run)
+
+Contract  split_data(X, y, test_size, val_size, random_state, stratify) returns six splits
 
 Why it matters
 - Split BEFORE anything is fitted: no leakage. Validation decides, test only audits

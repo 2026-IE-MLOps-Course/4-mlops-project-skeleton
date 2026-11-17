@@ -6,7 +6,8 @@ Run       pytest tests/test_clean_data.py   (CI runs all tests on every Pull Req
 
 What to check
 - Column names are standardized
-- Duplicates and rows without a target are removed, the index is reset
+- Training removes duplicates and rows without a target; inference preserves every row
+- The index is reset in both modes
 - A missing target column raises a clear error
 - Running it twice gives the same result
 

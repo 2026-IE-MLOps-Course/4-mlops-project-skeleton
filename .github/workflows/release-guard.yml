@@ -1,0 +1,14 @@
+# release-guard.yml  [A release must come from main]
+# -------------------------------------------------------------------
+# Purpose   Fail unless the release tag's commit is on main
+# Called by deploy.yml as its first job (guard)
+# Why       A tag from a feature branch would skip review
+#
+# Placeholder: describe the ancestry check, then replace this echo job
+name: Release guard (placeholder)
+on: workflow_call
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Replace this stub with the release tag ancestry check"

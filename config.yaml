@@ -14,4 +14,5 @@
 #   validation   business rules checked by validate.py
 #   evaluation   metrics, quality gate (metric + threshold), test audit on/off
 #   api          serving options (e.g. monitoring batch size)
-#   tracking     experiment tracking project, run name, tags, what to log
+#   run          whether classification inference includes probability
+#   wandb        experiment tracking project, run name, tags, what to log

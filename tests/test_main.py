@@ -8,6 +8,7 @@ What to check
 - Split math: sizes add up, no row appears in two splits, class balance is kept
 - End to end in a temporary folder: the pipeline runs and writes the model and predictions
 - main.py contains no cleaning, feature or model logic of its own
+- A failed quality gate prevents saving or registering a model
 
 Rule      Tests use small, fake in-memory data or temporary folders: never your real data files
 """

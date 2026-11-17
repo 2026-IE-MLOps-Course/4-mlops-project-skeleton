@@ -6,6 +6,7 @@ Run       pytest tests/test_tracking.py   (CI runs all tests on every Pull Reque
 
 What to check
 - With tracking disabled, every function runs and does nothing
+- Lineage records the Git commit and raw-data md5 from the DVC pointer
 - No test needs internet access or a real account
 
 Rule      Tests use small, fake data and run offline: no real data, secrets or external services
